@@ -3,6 +3,7 @@
 
 import argparse
 
+
 def get_args():
     """Get Command Line Arguments"""
 
@@ -15,7 +16,7 @@ def get_args():
 
 def main():
     """
-    Converts passed numeric arguments into jumped numbers.
+    Converts passed numeric arguments into jumped numbers and keeps the rest of the strings as is.
     """
     args = get_args()
     dial_number = args.number
@@ -33,19 +34,19 @@ def main():
         else:
             final_str += i
 
-    result = str(final_str).strip("[]")
+    raw_result = str(final_str).strip("[]")
 
     non_required = ["'", ","]
 
-    new_char = ''
+    result = ''
 
-    for i in str(result):
+    for i in str(raw_result):
         if i in non_required:
             pass
         else:
-            new_char += i
+            result += i
 
-    print(new_char)
+    print(result)
 
 
 if __name__ == '__main__':
